@@ -3,7 +3,7 @@
   3) ЛР7
   4) ЛР8";
 Console.WriteLine($"Введите номер пункта меню:\n{menuText}");
-var p = (int)Console.Read();
+int.TryParse(Console.ReadLine(), out int p);
 switch (p)
 {
     case 1:
@@ -29,6 +29,14 @@ switch (p)
         lab5.Task2();
         break;
     case 3:
+        Console.Write("Введите размерность массива: ");
+        int arraySize;
+        if (!int.TryParse(Console.ReadLine(), out arraySize))
+        {
+            Console.WriteLine($"Ошибка в вводе данных!");
+            break;
+        }
+        var lab7 = new Lab7(arraySize);
         break;
     case 4:
         var lab8 = new Lab8();
